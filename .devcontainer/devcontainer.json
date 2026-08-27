@@ -1,7 +1,9 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "ghcr.io/devcontainers/features/go:1": {}
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.24.2"
+    }
   },
-  "postCreateCommand": "go version && go install github.com/bootdotdev/bootdev@latest"
+  "postCreateCommand": "go version && go install github.com/bootdotdev/bootdev@latest && command -v bootdev || { echo 'ERROR: Boot.dev CLI installation failed. Check the Go toolchain and rebuild the container.' >&2; exit 1; }"
 }
